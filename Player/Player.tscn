@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://7fi2wveuvid3"]
+
+[ext_resource type="SpriteFrames" uid="uid://dvudg0jxlcgu1" path="res://Player/sprite_frames.tres" id="1_dlcgv"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_efm68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlnth"]
+size = Vector2(64, 64)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_efm68")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_dlcgv")
+animation = &"down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jlnth")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

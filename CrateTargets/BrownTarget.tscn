@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyqb7p7k68pfr"]
+
+[ext_resource type="Script" path="res://CrateTargets/BrownTarget.gd" id="1_eyqdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4wjk"]
+size = Vector2(64, 64)
+
+[node name="BrownTarget" type="Area2D"]
+script = ExtResource("1_eyqdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t4wjk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
