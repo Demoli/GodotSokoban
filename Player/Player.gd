@@ -31,10 +31,12 @@ func move(dir):
 	
 	if ray.is_colliding():
 		var c = ray.get_collider()
-		
-		if c is Crate and c.is_pushable(dir):
-			c.push(dir)
-			can_move = true
+		print(c)
+		if c:
+			if c is Crate and c.is_pushable(dir):
+				c.push(dir)
+				can_move = true
+			
 	
 	if can_move:
 		var tween = get_tree().create_tween()

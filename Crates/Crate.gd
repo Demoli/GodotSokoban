@@ -26,7 +26,7 @@ func is_pushable(dir):
 	ray.target_position = directions[dir] * tile_size
 	ray.force_raycast_update()
 	var is_target = ray.get_collider() is CrateTarget
-	
+
 	return !ray.is_colliding() or is_target
 	
 

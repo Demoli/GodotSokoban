@@ -7,6 +7,8 @@
 size = Vector2(64, 64)
 
 [node name="Player" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_efm68")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
