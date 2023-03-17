@@ -14,5 +14,8 @@ layer_0/tile_data = PackedInt32Array(262144, 196608, 0, 327680, 196608, 0, 39321
 [node name="Crate" parent="Crates" instance=ExtResource("2_5lqfj")]
 position = Vector2(224, 224)
 
+[node name="Crate2" parent="Crates" instance=ExtResource("2_5lqfj")]
+position = Vector2(288, 224)
+
 [node name="BrownTarget" parent="." instance=ExtResource("3_i7alq")]
 position = Vector2(224, 480)

@@ -20,7 +20,8 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("undo"):
-		$Undoer.undo()
+		if is_touching_player():
+			$Undoer.undo()
 
 	if Input.is_action_just_pressed("redo"):
 		if is_touching_player():
@@ -56,6 +57,7 @@ func is_touching_player():
 		ray.force_raycast_update()
 
 		if ray.get_collider() is Player:
+			print("%s is touching the player" % name)
 			return true
 	
 	return false
