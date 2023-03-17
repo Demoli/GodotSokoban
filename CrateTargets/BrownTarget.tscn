@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://CrateTargets/BrownTarget.gd" id="1_eyqdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4wjk"]
-size = Vector2(64, 64)
+size = Vector2(60, 60)
 
 [node name="BrownTarget" type="Area2D"]
 collision_layer = 8
-collision_mask = 12
+collision_mask = 4
 script = ExtResource("1_eyqdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

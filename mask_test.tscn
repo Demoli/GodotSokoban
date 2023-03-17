@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdtifp0rlf4vo"]
+
+[ext_resource type="Script" path="res://mask_test.gd" id="1_voip2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8xq1"]
+
+[node name="MaskTest" type="Node2D"]
+script = ExtResource("1_voip2")
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(59, -2)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_p8xq1")
+
+[node name="Target" type="Area2D" parent="."]
+position = Vector2(102, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("RectangleShape2D_p8xq1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]
+[connection signal="area_exited" from="Player" to="." method="_on_player_area_exited"]
+[connection signal="area_entered" from="Target" to="." method="_on_target_area_entered"]
+[connection signal="area_exited" from="Target" to="." method="_on_target_area_exited"]

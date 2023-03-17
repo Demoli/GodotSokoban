@@ -31,9 +31,7 @@ func _input(event):
 func is_pushable(dir):
 	ray.target_position = directions[dir] * tile_size
 	ray.force_raycast_update()
-	var is_target = ray.get_collider() is CrateTarget
-
-	return !ray.is_colliding() or is_target
+	return !ray.is_colliding()
 
 func push(dir: String):
 	if is_pushable(dir):
@@ -55,9 +53,7 @@ func is_touching_player():
 	for dir in directions:
 		ray.target_position = directions[dir] * tile_size
 		ray.force_raycast_update()
-
 		if ray.get_collider() is Player:
-			print("%s is touching the player" % name)
 			return true
 	
 	return false

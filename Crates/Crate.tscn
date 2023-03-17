@@ -8,6 +8,8 @@
 size = Vector2(64, 64)
 
 [node name="Crate" type="Area2D" groups=["pushable"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_7nfeg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,6 +21,7 @@ shape = SubResource("RectangleShape2D_i87q3")
 texture = ExtResource("1_k1vep")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 7
 collide_with_areas = true
 
 [node name="Undoer" type="Node" parent="." node_paths=PackedStringArray("target") groups=["undoer"]]
