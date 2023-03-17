@@ -54,7 +54,6 @@ func move(dir):
 		if has_undone:
 			get_parent().clear_undo()
 			has_undone = false
-			$Undoer.save_state({"position":position})
 			
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
@@ -63,8 +62,10 @@ func move(dir):
 		await tween.finished
 		moving = false
 
-		$Undoer.save_state({"position":position})
+		add_undo()
 
+func add_undo():
+	$Undoer.save_state({"position":position})
 
 func _on_undoer_undone(_state):
 	has_undone = true
