@@ -9,3 +9,6 @@ func clear_undo():
 	
 func _on_crate_placed(target, crate):
 	pass
+
+func _on_crate_removed(target, crate):
+	pass
