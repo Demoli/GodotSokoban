@@ -5,7 +5,7 @@ signal crate_placed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("crate_placed", Callable(get_tree().root.get_node("/root/Game"), '_on_crate_placed'))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,4 +15,4 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area is Crate:
-		emit_signal("crate_placed", [self, area])
+		emit_signal("crate_placed", self, area)
