@@ -17,7 +17,7 @@ var has_undone = false
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
-	$Undoer.save_state({"position":position})
+	add_undo()
 
 func _physics_process(delta):
 	pass
@@ -54,18 +54,26 @@ func move(dir):
 		if has_undone:
 			get_parent().clear_undo()
 			has_undone = false
-			
+
+		$AnimatedSprite2D.play(dir)
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 		moving = true
-		$AnimationPlayer.play(dir)
 		await tween.finished
+		$AnimatedSprite2D.stop()
 		moving = false
 
 		add_undo()
 
 func add_undo():
-	$Undoer.save_state({"position":position})
+	$Undoer.save_state({"position":position, "animation": $AnimatedSprite2D.animation})
 
-func _on_undoer_undone(_state):
+func _on_undoer_undone(state):
 	has_undone = true
+	if "animation" in state:
+		$AnimatedSprite2D.animation = state["animation"]
+
+
+func _on_undoer_redone(state):
+	if "animation" in state:
+		$AnimatedSprite2D.animation = state["animation"]

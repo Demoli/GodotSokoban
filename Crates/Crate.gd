@@ -38,7 +38,6 @@ func push(dir: String):
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", position + directions[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-#		position += directions[dir] * tile_size
 		moving = true
 		$AnimationPlayer.play(dir)
 		await tween.finished

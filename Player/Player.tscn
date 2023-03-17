@@ -20,8 +20,6 @@ animation = &"down"
 collision_mask = 13
 collide_with_areas = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jlnth")
 
@@ -29,4 +27,5 @@ shape = SubResource("RectangleShape2D_jlnth")
 script = ExtResource("3_e468f")
 target = NodePath("..")
 
+[connection signal="redone" from="Undoer" to="." method="_on_undoer_redone"]
 [connection signal="undone" from="Undoer" to="." method="_on_undoer_undone"]
