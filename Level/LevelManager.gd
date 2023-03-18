@@ -7,8 +7,8 @@ func next():
 	GlobalData.level += 1
 	
 	var level = load("res://Level/Level%s.tscn" % GlobalData.level)
-	var current = get_node("/root/Game/Level")
-	if current:
+	if GlobalData.level > 1:
+		var current = get_node("/root/Game/Level")
 		current.name = "DyingWorld"
 		current.queue_free()
 		var current_player = game.get_node("Player")

@@ -18,10 +18,6 @@ func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
 
-func _physics_process(delta):
-	pass
-			
-
 func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("undo"):

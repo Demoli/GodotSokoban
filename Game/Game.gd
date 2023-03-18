@@ -12,12 +12,12 @@ func clear_undo():
 		if undo.get_parent().has_method("add_undo"):
 			undo.get_parent().add_undo()
 	
-func _on_crate_placed(target, crate):
+func _on_crate_placed(_target, _crate):
 	crates_placed += 1
 	if crates_placed == _get_total_crates():
 		next_level()
 
-func _on_crate_removed(target, crate):
+func _on_crate_removed(_target, _crate):
 	if crates_placed == _get_total_crates():
 		next_level()
 
