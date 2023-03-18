@@ -1,3 +1,5 @@
 extends Node
 
-@export var grid_size := 64
+var grid_size := 64
+
+var level = 0

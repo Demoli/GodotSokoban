@@ -17,7 +17,6 @@ var has_undone = false
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
-	add_undo()
 
 func _physics_process(delta):
 	pass
