@@ -15,7 +15,9 @@ func next():
 		current_player.name = "DyingPlayer"
 		current_player.queue_free()
 
-	game.add_child(level.instantiate())
+	var new_level = level.instantiate()
+	game.add_child(new_level)
+	game.move_child(new_level, 0)
 	game.add_child(player.instantiate())
 	
 	game.get_node("Player").position = game.get_node("Level/PlayerSpawn").position

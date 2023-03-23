@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://addons/commandtimeline/Examples/ExampleScene.gd" id="1_5x7ul"]
+[ext_resource type="PackedScene" uid="uid://dtvu5mxw6o7ll" path="res://Timeline/Timeline.tscn" id="2_uainb"]
+[ext_resource type="PackedScene" uid="uid://c6h46qfq2u2dt" path="res://Timeline/Player.tscn" id="3_g3vjm"]
+[ext_resource type="PackedScene" uid="uid://cr5crofnfrecv" path="res://addons/commandtimeline/Examples/ExampleCommandPalette.tscn" id="6_plo3f"]
+[ext_resource type="PackedScene" uid="uid://drgkf8xq2k8c1" path="res://Timeline/CommandPlaceholder.tscn" id="8_46pd4"]
+[ext_resource type="PackedScene" path="res://addons/commandtimeline/Examples/PlayerRed.tscn" id="8_73vgn"]
+
+[node name="ExampleScene" type="Node"]
+script = ExtResource("1_5x7ul")
+
+[node name="Player" parent="." instance=ExtResource("3_g3vjm")]
+position = Vector2(32, 32)
+
+[node name="PlayerRed" parent="." instance=ExtResource("8_73vgn")]
+position = Vector2(32, 96)
+
+[node name="Timeline" parent="." instance=ExtResource("2_uainb")]
+position = Vector2(0, 548)
+placeholder = ExtResource("8_46pd4")
+
+[node name="ExampleCommandPalette" parent="." instance=ExtResource("6_plo3f")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[connection signal="command_added" from="Timeline" to="." method="_on_timeline_command_added"]

@@ -29,3 +29,8 @@ func next_level():
 	get_tree().call_group("undoer", "reset")
 	
 	LevelManager.next()
+
+
+func _on_timeline_command_added(command: Command):
+	match command.track:
+		0: command.target = $Player

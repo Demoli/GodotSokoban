@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3oh1u8ccpjrm"]
+[gd_scene load_steps=5 format=3 uid="uid://d3oh1u8ccpjrm"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_k56lx"]
+[ext_resource type="PackedScene" uid="uid://dtvu5mxw6o7ll" path="res://Timeline/Timeline.tscn" id="2_d8w8x"]
+[ext_resource type="PackedScene" uid="uid://drgkf8xq2k8c1" path="res://Timeline/CommandPlaceholder.tscn" id="3_pwibg"]
+[ext_resource type="PackedScene" uid="uid://lda765xhgk1y" path="res://Timeline/CommandPalette.tscn" id="4_ufpxv"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_k56lx")
+
+[node name="Timeline" parent="." instance=ExtResource("2_d8w8x")]
+position = Vector2(0, 546)
+max_time = 6.0
+command_step = 0.33
+allow_command_at_zero = true
+placeholder = ExtResource("3_pwibg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ExampleCommandPalette" parent="CanvasLayer" instance=ExtResource("4_ufpxv")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[connection signal="command_added" from="Timeline" to="." method="_on_timeline_command_added"]

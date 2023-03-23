@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cxsegb12mei5a" path="res://addons/commandtimeline/Examples/Player.tscn" id="1_fmwx4"]
+[ext_resource type="Texture2D" uid="uid://b88s2airyqwdb" path="res://addons/commandtimeline/assets/player_red.png" id="2_jofmd"]
+
+[node name="Player" instance=ExtResource("1_fmwx4")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jofmd")

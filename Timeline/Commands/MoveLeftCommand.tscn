@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://wvhl2rkc0kci"]
+
+[ext_resource type="Script" path="res://Timeline/Commands/MoveRightCommand.gd" id="1_x0fer"]
+[ext_resource type="Texture2D" uid="uid://c2dytgfupor0b" path="res://addons/commandtimeline/assets/arrowLeft.png" id="2_ohgnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0dv8"]
+size = Vector2(32, 32)
+
+[node name="MoveLeftCommand" type="Area2D"]
+script = ExtResource("1_x0fer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ohgnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g0dv8")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6h46qfq2u2dt"]
+
+[ext_resource type="Texture2D" uid="uid://mxjd1ugxyrgx" path="res://addons/commandtimeline/assets/player.png" id="1_i1j30"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1knyl"]
+size = Vector2(64, 64)
+
+[node name="Player" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i1j30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1knyl")
