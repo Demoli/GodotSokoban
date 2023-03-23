@@ -128,3 +128,7 @@ func _init_placeholders():
 			track.add_child(new_place)
 		
 		track_index += 1
+
+func reset():
+	commands = []
+	get_tree().call_group("timeline_command", "queue_free")

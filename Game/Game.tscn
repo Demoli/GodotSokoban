@@ -25,4 +25,7 @@ offset_left = -50.0
 offset_bottom = 50.0
 grow_horizontal = 0
 
+[node name="WinTimer" type="Timer" parent="."]
+
 [connection signal="command_added" from="Timeline" to="." method="_on_timeline_command_added"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
