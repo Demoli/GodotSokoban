@@ -10,8 +10,7 @@ script = ExtResource("1_k56lx")
 
 [node name="Timeline" parent="." instance=ExtResource("2_d8w8x")]
 position = Vector2(0, 546)
-max_time = 6.0
-command_step = 0.33
+max_time = 30.0
 allow_command_at_zero = true
 placeholder = ExtResource("3_pwibg")
 

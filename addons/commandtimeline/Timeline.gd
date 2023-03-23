@@ -58,6 +58,13 @@ func _process(delta):
 		progress_bar.value = tick
 		
 		_process_commands()
+		
+	var scroll = 0
+	if Input.is_action_pressed("timeline_scroll_left"):
+		scroll += 1
+	if Input.is_action_pressed("timeline_scroll_right"):
+		scroll -= 1
+	$Tracks.position.x += scroll
 
 func _process_commands():
 	var runnable = commands.filter(
@@ -83,6 +90,7 @@ func stop():
 	progress_bar.value = 0
 	tick = 0
 	get_tree().call_group("timeline_command", "reset")
+	$Tracks.position.x = 50
 
 func get_running_time():
 	var time_now = Time.get_unix_time_from_system()
