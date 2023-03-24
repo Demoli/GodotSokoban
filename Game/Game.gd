@@ -3,8 +3,14 @@ extends Node2D
 var crates_placed = 0
 
 func _ready():
-	LevelManager.next()
+	GlobalData.level += 1
+	load_level()
 	$WinTimer.start()
+
+func _process(delta):
+	if Input.is_action_just_pressed("stop"):
+		# reload the level
+		load_level()
 
 func clear_undo():
 	for undo in get_tree().get_nodes_in_group("undoer"):
@@ -24,17 +30,23 @@ func _on_crate_removed(_target, _crate):
 func _get_total_crates() -> int:
 	return get_tree().get_nodes_in_group("crate").size()
 
-func next_level():
+func load_level():
 	crates_placed = 0
 	get_tree().call_group("undoer", "reset")
-	$Timeline.reset()
-	LevelManager.next()
+	LevelManager.load()
 
+	var commands = $Timeline.commands
+	for c in commands:
+		_on_timeline_command_added(c)
+	
+func next_level():
+	GlobalData.level += 1
+	$Timeline.reset()
+	load_level()
 
 func _on_timeline_command_added(command: Command):
 	match command.track:
 		0: command.target = $Player
-
 
 func _on_win_timer_timeout():
 	if crates_placed == _get_total_crates():

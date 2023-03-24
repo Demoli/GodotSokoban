@@ -3,11 +3,10 @@ extends Node
 @onready var game = get_node("/root/Game")
 @onready var player = load("res://Player/Player.tscn")
 
-func next():
-	GlobalData.level += 1
+func load():
+	var current = get_node("/root/Game/Level")
 	
-	if GlobalData.level > 1:
-		var current = get_node("/root/Game/Level")
+	if current:
 		current.name = "DyingWorld"
 		current.queue_free()
 		var current_player = game.get_node("Player")
@@ -24,7 +23,3 @@ func next():
 	
 func prev():
 	pass
-
-func new_game():
-	GlobalData.level = 0
-	next()
