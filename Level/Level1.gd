@@ -10,23 +10,25 @@ var commands = {
 }
 
 func _ready():
-	for i in 4:
-		var new = commands["down"].instantiate()
-		new.time = (0.5 * i)
-		new.track = 0
-		timeline.add_command(new)
-	for i in 4:
-		var new = commands["up"].instantiate()
-		new.time = 2 + (0.5 * i)
-		new.track = 0
-		timeline.add_command(new)
+	for track in range(0,2):
+		print(track)
+		for i in 4:
+			var new = commands["down"].instantiate()
+			new.time = (0.5 * i)
+			new.track = track
+			timeline.add_command(new)
+		for i in 4:
+			var new = commands["up"].instantiate()
+			new.time = 2 + (0.5 * i)
+			new.track = track
+			timeline.add_command(new)
 
-	var new = commands["right"].instantiate()
-	new.time = 4
-	new.track = 0
-	timeline.add_command(new)
-	for i in 4:
-		new = commands["down"].instantiate()
-		new.time = 4.5 + (0.5 * i)
-		new.track = 0
+		var new = commands["right"].instantiate()
+		new.time = 4
+		new.track = track
 		timeline.add_command(new)
+		for i in 4:
+			new = commands["down"].instantiate()
+			new.time = 4.5 + (0.5 * i)
+			new.track = track
+			timeline.add_command(new)

@@ -41,7 +41,6 @@ func _ready():
 	add_to_group("timeline")
 	progress_bar.value = 0
 	progress_bar.max_value = commands_per_track * abs(command_step)
-	print(progress_bar.max_value)
 	
 	_init_placeholders()
 
@@ -109,7 +108,6 @@ func get_command_placeholder(command: Command):
 	return $Tracks.get_child(command.track).get_children().filter(
 		func(place):
 			if place is CommandPlaceholder:
-				print("%s: %s" % [command.time, place.time_position])
 				return place.time_position == command.time
 			return false
 	).pop_front()

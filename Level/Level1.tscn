@@ -26,5 +26,8 @@ position = Vector2(224, 480)
 [node name="BrownTarget2" parent="." instance=ExtResource("3_66ivk")]
 position = Vector2(288, 480)
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("4_0c478")]
+[node name="GreenPlayerSpawn" parent="." instance=ExtResource("4_0c478")]
 position = Vector2(224, 160)
+
+[node name="RedPlayerSpawn" parent="." instance=ExtResource("4_0c478")]
+position = Vector2(288, 160)

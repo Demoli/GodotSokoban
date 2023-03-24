@@ -11,10 +11,11 @@ var inputs = {
 	"down": Vector2.DOWN
 }
 var has_undone = false
-
+	
 @onready var ray: RayCast2D = $RayCast2D
 
 func _ready():
+	add_to_group("player")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
 

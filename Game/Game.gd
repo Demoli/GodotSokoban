@@ -33,7 +33,7 @@ func _get_total_crates() -> int:
 func load_level():
 	crates_placed = 0
 	get_tree().call_group("undoer", "reset")
-	LevelManager.load()
+	LevelManager.load_level()
 
 	var commands = $CanvasLayer/Timeline.commands
 	for c in commands:
@@ -47,7 +47,8 @@ func next_level():
 
 func _on_timeline_command_added(command: Command):
 	match command.track:
-		0: command.target = $Player
+		0: command.target = $PlayerGreen
+		1: command.target = $PlayerRed
 
 func _on_win_timer_timeout():
 	if crates_placed == _get_total_crates():

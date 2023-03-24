@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://5cqg2wr3nubg"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_7jc2c"]
+[ext_resource type="Shader" path="res://Player/PlayerHatColor.gdshader" id="2_pxwyq"]
+[ext_resource type="SpriteFrames" uid="uid://dvudg0jxlcgu1" path="res://Player/sprite_frames.tres" id="3_lwax0"]
+[ext_resource type="Script" path="res://addons/UndoRedo/Undoer.gd" id="4_ihhef"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ya42"]
+shader = ExtResource("2_pxwyq")
+shader_parameter/u_color_key = Color(0.156863, 0.694118, 0.384314, 1)
+shader_parameter/u_replacement_color = Color(1, 0.345098, 0.278431, 1)
+shader_parameter/u_tolerance = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlnth"]
+size = Vector2(64, 64)
+
+[node name="PlayerRed" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_7jc2c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_5ya42")
+sprite_frames = ExtResource("3_lwax0")
+animation = &"down"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 13
+collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jlnth")
+
+[node name="Undoer" type="Node" parent="." node_paths=PackedStringArray("target") groups=["undoer"]]
+script = ExtResource("4_ihhef")
+target = NodePath("..")
+
+[connection signal="redone" from="Undoer" to="." method="_on_undoer_redone"]
+[connection signal="undone" from="Undoer" to="." method="_on_undoer_undone"]
