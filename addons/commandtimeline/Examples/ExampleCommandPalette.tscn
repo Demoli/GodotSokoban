@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/commandtimeline/CommandPalette.gd" id="1_wghv1"]
 [ext_resource type="Texture2D" uid="uid://bq4kyp3tt5rs6" path="res://addons/commandtimeline/assets/arrowRight.png" id="2_fn6hd"]
 [ext_resource type="Script" path="res://addons/commandtimeline/CommandButton.gd" id="3_fg0w2"]
-[ext_resource type="PackedScene" path="res://addons/commandtimeline/Examples/ExampleCommands/MoveRightCommand.tscn" id="4_1ba4s"]
+[ext_resource type="PackedScene" uid="uid://cdvkn0pvm41yi" path="res://addons/commandtimeline/Examples/ExampleCommands/MoveRightCommand.tscn" id="4_1ba4s"]
 
 [node name="ExampleCommandPalette" type="GridContainer"]
 script = ExtResource("1_wghv1")

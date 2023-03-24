@@ -13,11 +13,11 @@ func _ready():
 	new.time = 1.0
 	$Timeline.add_command(new)
 	
-	new = move_right_com.instantiate()
-	new.target = $PlayerRed
-	new.time = 1
-	new.track = 1
-	$Timeline.add_command(new)
+#	new = move_right_com.instantiate()
+#	new.target = $PlayerRed
+#	new.time = 1
+#	new.track = 1
+#	$Timeline.add_command(new)
 
 
 func _on_timeline_command_added(command: Command):

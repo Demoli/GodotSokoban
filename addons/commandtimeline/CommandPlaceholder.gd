@@ -1,5 +1,5 @@
 class_name CommandPlaceholder
-extends Area2D
+extends TextureRect
 
 ## Base node for Command Placeholders
 ## 

@@ -2,16 +2,20 @@
 
 [ext_resource type="Script" path="res://addons/commandtimeline/CommandPlaceholder.gd" id="1_o63c6"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c48ks"]
-size = Vector2(10, 10)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4un6l"]
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2bj5"]
+size = Vector2(32, 32)
 
-[node name="CommandPlaceholder" type="Area2D" groups=["command_placeholder"]]
+[node name="CommandPlaceholder" type="TextureRect" groups=["command_placeholder"]]
+offset_right = 20.0
+offset_bottom = 20.0
+texture = SubResource("PlaceholderTexture2D_4un6l")
 script = ExtResource("1_o63c6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_c48ks")
+[node name="Target" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u2bj5")

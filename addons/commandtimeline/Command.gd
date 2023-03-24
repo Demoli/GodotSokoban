@@ -44,9 +44,11 @@ func _input(event):
 			place_command(place)
 	elif not draggable and mouse_over and event.is_action_released("pick_place_command"):
 		timeline.remove_command(self)
+		get_parent().remove_child(self)
+		timeline.get_parent().add_child(self)
 		draggable = true
 
-func place_command(area: Area2D):
+func place_command(area: CommandPlaceholder):
 	get_parent().remove_child(self)
 	
 	time = area.time_position
@@ -62,8 +64,9 @@ func _physics_process(_delta):
 func _get_overlapping_palceholder():
 	var areas = get_overlapping_areas()
 	for area in areas:
-		if area is CommandPlaceholder:
-			return area
+		
+		if area.get_parent() is CommandPlaceholder:
+			return area.get_parent()
 	return null
 
 func _on_mouse_entered():

@@ -35,13 +35,14 @@ func load_level():
 	get_tree().call_group("undoer", "reset")
 	LevelManager.load()
 
-	var commands = $Timeline.commands
+	var commands = $CanvasLayer/Timeline.commands
 	for c in commands:
 		_on_timeline_command_added(c)
 	
 func next_level():
 	GlobalData.level += 1
-	$Timeline.reset()
+	$CanvasLayer/Timeline.stop()
+	$CanvasLayer/Timeline.reset()
 	load_level()
 
 func _on_timeline_command_added(command: Command):

@@ -1,59 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtvu5mxw6o7ll"]
+[gd_scene load_steps=4 format=3 uid="uid://dtvu5mxw6o7ll"]
 
 [ext_resource type="Script" path="res://addons/commandtimeline/Timeline.gd" id="1_7xjt8"]
 [ext_resource type="Texture2D" uid="uid://bu5avu5wodk54" path="res://addons/commandtimeline/assets/player_face.png" id="3_jiak5"]
 [ext_resource type="Texture2D" uid="uid://drvk1kcl8d24" path="res://addons/commandtimeline/assets/player_face_red.png" id="4_df8hi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bca6i"]
-size = Vector2(1052, 100)
-
-[node name="Timeline" type="Area2D"]
-monitoring = false
-monitorable = false
+[node name="Timeline" type="VBoxContainer"]
+offset_right = 36.0
+offset_bottom = 108.0
 script = ExtResource("1_7xjt8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(576, 50)
-shape = SubResource("RectangleShape2D_bca6i")
-disabled = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
 
-[node name="Tracks" type="Node2D" parent="."]
-position = Vector2(50, 0)
-
-[node name="Track1" type="Node2D" parent="Tracks"]
-
-[node name="Player" type="Sprite2D" parent="Tracks/Track1"]
-position = Vector2(-25, 25)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_jiak5")
-
-[node name="Track2" type="Node2D" parent="Tracks"]
-position = Vector2(0, 50)
-
-[node name="Player" type="Sprite2D" parent="Tracks/Track2"]
-position = Vector2(-25, 25)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_df8hi")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 104.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_filter = 2
 show_percentage = false
+
+[node name="Tracks" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Track1" type="GridContainer" parent="Tracks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 100
+
+[node name="PlayerIcon" type="TextureRect" parent="Tracks/Track1"]
+layout_mode = 2
+texture = ExtResource("3_jiak5")
+stretch_mode = 2
+
+[node name="Track2" type="GridContainer" parent="Tracks"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 100
+
+[node name="PlayerIcon" type="TextureRect" parent="Tracks/Track2"]
+layout_mode = 2
+texture = ExtResource("4_df8hi")
+stretch_mode = 2
