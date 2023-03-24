@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bioluyyc1kkh"]
+
+[ext_resource type="Script" path="res://CrateSpawner/CrateSpawner.gd" id="1_4lf8k"]
+[ext_resource type="Texture2D" uid="uid://b6re1khnd5gwy" path="res://assets/source/Environment/environment_03.png" id="1_ahe4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au2d4"]
+size = Vector2(64, 64)
+
+[node name="CrateSpawner" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4lf8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_au2d4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ahe4d")

@@ -16,7 +16,7 @@ var directions = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Undoer.save_state({"position":position})
-	pass # Replace with function body.
+	add_to_group("crate")
 
 func _input(_event):
 	if Input.is_action_just_pressed("undo"):

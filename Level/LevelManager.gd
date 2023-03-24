@@ -6,7 +6,6 @@ extends Node
 func next():
 	GlobalData.level += 1
 	
-	var level = load("res://Level/Level%s.tscn" % GlobalData.level)
 	if GlobalData.level > 1:
 		var current = get_node("/root/Game/Level")
 		current.name = "DyingWorld"
@@ -15,10 +14,10 @@ func next():
 		current_player.name = "DyingPlayer"
 		current_player.queue_free()
 
-	var new_level = level.instantiate()
+	game.add_child(player.instantiate())
+	var new_level = load("res://Level/Level%s.tscn" % GlobalData.level).instantiate()
 	game.add_child(new_level)
 	game.move_child(new_level, 0)
-	game.add_child(player.instantiate())
 	
 	game.get_node("Player").position = game.get_node("Level/PlayerSpawn").position
 	game.get_node("Player").add_undo()
