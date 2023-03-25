@@ -56,8 +56,6 @@ func clear():
 func apply_to_parent(state: Dictionary):
 	var changed = false
 	for key in state:
-		if not key in target:
-			continue
 		if target[key] != state[key]:
 			changed = true
 		target[key] = state[key]

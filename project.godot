@@ -27,7 +27,7 @@ window/size/viewport_height=640
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/YATI/plugin.cfg", "res://addons/UndoRedo/plugin.cfg")
+enabled=PackedStringArray("res://addons/commandtimeline/plugin.cfg")
 
 [input]
 

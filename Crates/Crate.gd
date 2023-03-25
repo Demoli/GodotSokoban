@@ -15,17 +15,10 @@ var directions = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Undoer.save_state({"position":position})
 	add_to_group("crate")
 
 func _input(_event):
-	if Input.is_action_just_pressed("undo"):
-		if is_touching_player():
-			$Undoer.undo()
-
-	if Input.is_action_just_pressed("redo"):
-		if is_touching_player():
-			$Undoer.redo()
+	pass
 	
 
 func is_pushable(dir):
@@ -41,7 +34,6 @@ func push(dir: String):
 		moving = true
 		await tween.finished
 		moving = false
-		add_undo()
 		
 		return true
 	
@@ -55,6 +47,3 @@ func is_touching_player():
 			return true
 	
 	return false
-
-func add_undo():
-	$Undoer.save_state({"position":position})

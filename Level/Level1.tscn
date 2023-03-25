@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvgv8omwrqh47"]
+[gd_scene load_steps=6 format=3 uid="uid://3046u7xof7ph"]
 
 [ext_resource type="PackedScene" uid="uid://5btfulk85jvg" path="res://Level/LevelTileMap.tscn" id="1_2cmpt"]
 [ext_resource type="Script" path="res://Level/Level1.gd" id="1_ldkh3"]
-[ext_resource type="PackedScene" uid="uid://dyqb7p7k68pfr" path="res://CrateTargets/BrownTarget.tscn" id="3_66ivk"]
+[ext_resource type="PackedScene" uid="uid://dyqb7p7k68pfr" path="res://CrateTargets/CrateTarget.tscn" id="3_66ivk"]
 [ext_resource type="PackedScene" uid="uid://c4u6cfcpj8p5s" path="res://Player/PlayerSpawn.tscn" id="4_0c478"]
 [ext_resource type="PackedScene" uid="uid://bioluyyc1kkh" path="res://CrateSpawner/CrateSpawner.tscn" id="5_cnclv"]
 

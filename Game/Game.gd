@@ -11,13 +11,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("stop"):
 		# reload the level
 		load_level()
-
-func clear_undo():
-	for undo in get_tree().get_nodes_in_group("undoer"):
-		# reset undos then set the new initial state on all undoable objects
-		undo.clear()
-		if undo.get_parent().has_method("add_undo"):
-			undo.get_parent().add_undo()
 	
 func _on_crate_placed(_target, _crate):
 	crates_placed += 1
@@ -32,7 +25,6 @@ func _get_total_crates() -> int:
 
 func load_level():
 	crates_placed = 0
-	get_tree().call_group("undoer", "reset")
 	LevelManager.load_level()
 
 	var commands = $CanvasLayer/Timeline.commands

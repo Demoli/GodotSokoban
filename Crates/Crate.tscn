@@ -22,6 +22,5 @@ texture = ExtResource("1_k1vep")
 collision_mask = 7
 collide_with_areas = true
 
-[node name="Undoer" type="Node" parent="." node_paths=PackedStringArray("target") groups=["undoer"]]
+[node name="Undoer" type="Node" parent="." groups=["undoer"]]
 script = ExtResource("3_xvd7w")
-target = NodePath("..")

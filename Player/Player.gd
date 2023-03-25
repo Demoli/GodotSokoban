@@ -20,19 +20,13 @@ func _ready():
 	position += Vector2.ONE * tile_size / 2
 
 func _unhandled_input(event):
-	
-	if Input.is_action_just_pressed("undo"):
-		$Undoer.undo()
-
-	if Input.is_action_just_pressed("redo"):
-		$Undoer.redo()
-	
 	if moving:
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
-			
+
+
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
@@ -58,18 +52,3 @@ func move(dir):
 		await tween.finished
 		$AnimatedSprite2D.stop()
 		moving = false
-
-		add_undo()
-
-func add_undo():
-	$Undoer.save_state({"position":position, "animation": $AnimatedSprite2D.animation})
-
-func _on_undoer_undone(state):
-	has_undone = true
-	if "animation" in state:
-		$AnimatedSprite2D.animation = state["animation"]
-
-
-func _on_undoer_redone(state):
-	if "animation" in state:
-		$AnimatedSprite2D.animation = state["animation"]

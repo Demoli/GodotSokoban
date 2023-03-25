@@ -7,7 +7,7 @@ extends Node
 ]
 
 func load_level():
-	var current = get_node("/root/Game/Level")
+	var current = get_node("/root/Game/Level") if has_node("/root/Game/Level") else null
 	
 	if current:
 		current.name = "DyingWorld"
