@@ -14,4 +14,4 @@ func _on_pressed():
 	var new = command.instantiate() as Command
 	new.position = get_global_mouse_position()
 	new.draggable = true
-	get_tree().root.add_child(new)
+	get_tree().get_first_node_in_group("timeline").add_child(new)
