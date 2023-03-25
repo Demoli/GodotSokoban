@@ -1,6 +1,8 @@
 class_name Player
 extends Area2D
 
+signal hit_obstacle
+
 var animation_speed = 12
 var moving = false
 var tile_size = 64
@@ -16,6 +18,7 @@ var has_undone = false
 
 func _ready():
 	add_to_group("player")
+	connect("hit_obstacle", Callable(get_node("/root/Game"), "_on_player_hit_obstacle"))
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
 
@@ -52,3 +55,6 @@ func move(dir):
 		await tween.finished
 		$AnimatedSprite2D.stop()
 		moving = false
+	
+	if not can_move:
+		emit_signal("hit_obstacle", self)

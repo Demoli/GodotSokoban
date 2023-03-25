@@ -17,7 +17,7 @@ sprite_frames = ExtResource("2_dh0iq")
 animation = &"down"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 13
+collision_mask = 15
 collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

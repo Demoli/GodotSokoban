@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lda765xhgk1y"]
+[gd_scene load_steps=19 format=3 uid="uid://lda765xhgk1y"]
 
 [ext_resource type="Script" path="res://addons/commandtimeline/CommandPalette.gd" id="1_wghv1"]
 [ext_resource type="Texture2D" uid="uid://bq4kyp3tt5rs6" path="res://addons/commandtimeline/assets/arrowRight.png" id="2_fn6hd"]
@@ -19,13 +19,29 @@ unicode = 49
 [sub_resource type="Shortcut" id="Shortcut_g5c5y"]
 events = [SubResource("InputEventKey_tuso3")]
 
-[sub_resource type="InputEventKey" id="InputEventKey_usmjc"]
+[sub_resource type="InputEventKey" id="InputEventKey_vls7r"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_w7db2"]
+events = [SubResource("InputEventKey_vls7r")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ep4rs"]
 device = -1
 keycode = 51
 unicode = 51
 
+[sub_resource type="Shortcut" id="Shortcut_v2n8i"]
+events = [SubResource("InputEventKey_ep4rs")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5te31"]
+device = -1
+keycode = 52
+unicode = 52
+
 [sub_resource type="Shortcut" id="Shortcut_45dw0"]
-events = [SubResource("InputEventKey_usmjc")]
+events = [SubResource("InputEventKey_5te31")]
 
 [node name="ExampleCommandPalette" type="GridContainer"]
 columns = 2
@@ -40,14 +56,14 @@ command = ExtResource("4_ewn0k")
 
 [node name="MoveRight" type="TextureButton" parent="."]
 layout_mode = 2
-shortcut = SubResource("Shortcut_45dw0")
+shortcut = SubResource("Shortcut_w7db2")
 texture_normal = ExtResource("2_fn6hd")
 script = ExtResource("3_fg0w2")
 command = ExtResource("4_1ba4s")
 
 [node name="MoveDown" type="TextureButton" parent="."]
 layout_mode = 2
-shortcut = SubResource("Shortcut_45dw0")
+shortcut = SubResource("Shortcut_v2n8i")
 texture_normal = ExtResource("5_3q8il")
 script = ExtResource("3_fg0w2")
 command = ExtResource("6_5cti0")

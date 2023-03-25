@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="CommandPlaceholder" type="TextureRect" groups=["command_placeholder"]]
+modulate = Color(0, 0, 1, 1)
 offset_right = 20.0
 offset_bottom = 20.0
 texture = SubResource("PlaceholderTexture2D_4un6l")

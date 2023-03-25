@@ -48,3 +48,10 @@ func _on_timeline_command_added(command: Command):
 func _on_win_timer_timeout():
 	if crates_placed == _get_total_crates():
 		next_level()
+
+func _on_player_hit_obstacle(player):
+	fail()
+
+func fail():
+	print("you failed")
+	load_level()

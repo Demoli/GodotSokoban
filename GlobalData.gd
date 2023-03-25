@@ -2,4 +2,4 @@ extends Node
 
 var grid_size := 64
 
-var level = 0
+var level = 1
