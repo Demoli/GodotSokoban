@@ -7,7 +7,7 @@ func _ready():
 	load_level()
 	$WinTimer.start()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("stop"):
 		# reload the level
 		load_level()
@@ -39,6 +39,8 @@ func next_level():
 	load_level()
 
 func _on_timeline_command_added(command: Command):
+	if not has_node("PlayerGreen"):
+		return
 	match command.track:
 		0: command.target = $PlayerGreen
 		1: command.target = $PlayerRed

@@ -11,7 +11,6 @@ var commands = {
 
 func _ready():
 	for track in range(0,2):
-		print(track)
 		for i in 4:
 			var new = commands["down"].instantiate()
 			new.time = (0.5 * i)

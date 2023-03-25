@@ -7,11 +7,6 @@ signal crate_removed
 func _ready():
 	connect("crate_removed", Callable(get_tree().root.get_node("/root/Game"), '_on_crate_removed'))
 	connect("crate_placed", Callable(get_tree().root.get_node("/root/Game"), '_on_crate_placed'))
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_area_entered(area):

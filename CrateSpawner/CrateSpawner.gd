@@ -9,6 +9,3 @@ func spawn():
 	var new = crate.instantiate()
 	new.set_position(position)
 	get_parent().add_child.call_deferred(new)
-
-func _process(delta):
-	pass
