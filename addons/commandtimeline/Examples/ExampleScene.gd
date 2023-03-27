@@ -6,12 +6,12 @@ func _ready():
 	var new = move_right_com.instantiate()
 	new.time = .5
 	new.target = $Player
-	$Timeline.add_command(new)
+	$Timeline/Tracks/Track1.add_command(new)
 	
 	new = move_right_com.instantiate()
 	new.target = $Player
 	new.time = 1.0
-	$Timeline.add_command(new)
+	$Timeline/Tracks/Track1.add_command(new)
 	
 #	new = move_right_com.instantiate()
 #	new.target = $PlayerRed

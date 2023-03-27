@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7w26qv8ry2j7"]
+[gd_scene load_steps=4 format=3 uid="uid://b7w26qv8ry2j7"]
 
 [ext_resource type="Script" path="res://Game/Game.gd" id="1_k56lx"]
-[ext_resource type="PackedScene" uid="uid://drgkf8xq2k8c1" path="res://Timeline/CommandPlaceholder.tscn" id="3_2hgy3"]
 [ext_resource type="PackedScene" uid="uid://b6r74688v77g6" path="res://Timeline/Timeline.tscn" id="3_sxvu8"]
 [ext_resource type="PackedScene" uid="uid://lda765xhgk1y" path="res://Timeline/CommandPalette.tscn" id="4_ufpxv"]
 
@@ -35,8 +34,6 @@ vertical_scroll_mode = 0
 
 [node name="Timeline" parent="CanvasLayer/VBoxContainer/ScrollContainer" instance=ExtResource("3_sxvu8")]
 layout_mode = 2
-allow_command_at_zero = true
-placeholder = ExtResource("3_2hgy3")
 
 [node name="WinTimer" type="Timer" parent="."]
 

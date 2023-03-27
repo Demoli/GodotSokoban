@@ -1,46 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtvu5mxw6o7ll"]
 
 [ext_resource type="Script" path="res://addons/commandtimeline/Timeline.gd" id="1_7xjt8"]
-[ext_resource type="Texture2D" uid="uid://bu5avu5wodk54" path="res://addons/commandtimeline/assets/player_face.png" id="3_jiak5"]
-[ext_resource type="Texture2D" uid="uid://drvk1kcl8d24" path="res://addons/commandtimeline/assets/player_face_red.png" id="4_df8hi"]
+[ext_resource type="PackedScene" uid="uid://dnbmhydfvknkt" path="res://addons/commandtimeline/Track.tscn" id="2_ba8en"]
+[ext_resource type="PackedScene" uid="uid://drgkf8xq2k8c1" path="res://addons/commandtimeline/Examples/ExampleCommandPlaceholder.tscn" id="3_nmofu"]
 
 [node name="Timeline" type="VBoxContainer"]
 offset_right = 36.0
 offset_bottom = 108.0
 script = ExtResource("1_7xjt8")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-mouse_filter = 2
-show_percentage = false
-
 [node name="Tracks" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Track1" type="GridContainer" parent="Tracks"]
+[node name="Track1" parent="Tracks" instance=ExtResource("2_ba8en")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 100
+placeholder = ExtResource("3_nmofu")
 
-[node name="PlayerIcon" type="TextureRect" parent="Tracks/Track1"]
-layout_mode = 2
-texture = ExtResource("3_jiak5")
-stretch_mode = 2
-
-[node name="Track2" type="GridContainer" parent="Tracks"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 100
-
-[node name="PlayerIcon" type="TextureRect" parent="Tracks/Track2"]
-layout_mode = 2
-texture = ExtResource("4_df8hi")
-stretch_mode = 2
+[connection signal="command_added" from="Tracks/Track1" to="." method="_on_track_command_added"]

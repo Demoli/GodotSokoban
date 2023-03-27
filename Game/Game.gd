@@ -27,9 +27,11 @@ func load_level():
 	crates_placed = 0
 	LevelManager.load_level()
 
-	var commands = get_tree().get_first_node_in_group("timeline").commands
-	for c in commands:
-		_on_timeline_command_added(c)
+	var commands = []
+	for t in get_tree().get_nodes_in_group("track"):
+		for c in t.commands:
+			_on_timeline_command_added(c)
+		
 	
 func next_level():
 	GlobalData.level += 1

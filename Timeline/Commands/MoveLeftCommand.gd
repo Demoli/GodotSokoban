@@ -2,7 +2,8 @@ extends Command
 
 @export var target: Player
 
-func run(_args: Array = []):
+func run():
+	super()
 	target.move("left")
 
 

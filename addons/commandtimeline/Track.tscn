@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnbmhydfvknkt"]
+
+[ext_resource type="Script" path="res://addons/commandtimeline/Track.gd" id="1_ll2mc"]
+[ext_resource type="Texture2D" uid="uid://bu5avu5wodk54" path="res://addons/commandtimeline/assets/player_face.png" id="1_mn0oc"]
+
+[node name="Track" type="GridContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 100
+script = ExtResource("1_ll2mc")
+
+[node name="PlayerIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_mn0oc")
+stretch_mode = 2

@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdvkn0pvm41yi"]
+[gd_scene load_steps=5 format=3 uid="uid://swrgme1jltnj"]
 
 [ext_resource type="Script" path="res://addons/commandtimeline/Examples/ExampleCommands/MoveRightCommand.gd" id="2_6ymqa"]
+[ext_resource type="Material" uid="uid://bdq1nxlriju6e" path="res://addons/commandtimeline/RunningCommandMaterial.tres" id="2_613gq"]
 [ext_resource type="Texture2D" uid="uid://bq4kyp3tt5rs6" path="res://addons/commandtimeline/assets/arrowRight.png" id="3_grnut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0dv8"]
 size = Vector2(32, 32)
 
 [node name="MoveRightCommand" type="Area2D"]
+material = ExtResource("2_613gq")
 script = ExtResource("2_6ymqa")
+time = null
+has_run = null
+draggable = null
+track = null
+running_command_material = ExtResource("2_613gq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_grnut")

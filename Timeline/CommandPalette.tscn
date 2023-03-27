@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://lda765xhgk1y"]
+[gd_scene load_steps=23 format=3 uid="uid://lda765xhgk1y"]
 
 [ext_resource type="Script" path="res://addons/commandtimeline/CommandPalette.gd" id="1_wghv1"]
 [ext_resource type="Texture2D" uid="uid://bq4kyp3tt5rs6" path="res://addons/commandtimeline/assets/arrowRight.png" id="2_fn6hd"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://1yvkgud7rn3i" path="res://Timeline/Commands/MoveDownCommand.tscn" id="6_5cti0"]
 [ext_resource type="Texture2D" uid="uid://c2dytgfupor0b" path="res://addons/commandtimeline/assets/arrowLeft.png" id="7_ht8ne"]
 [ext_resource type="PackedScene" uid="uid://wvhl2rkc0kci" path="res://Timeline/Commands/MoveLeftCommand.tscn" id="10_8s4tk"]
+[ext_resource type="Texture2D" uid="uid://bgbilfcxxvhr5" path="res://assets/fightJoy_48.png" id="11_bg6qr"]
+[ext_resource type="PackedScene" uid="uid://cqe8utbb7xwwa" path="res://Timeline/Commands/RepeatCommand.tscn" id="12_74ex7"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_tuso3"]
 device = -1
@@ -43,6 +45,14 @@ unicode = 52
 [sub_resource type="Shortcut" id="Shortcut_45dw0"]
 events = [SubResource("InputEventKey_5te31")]
 
+[sub_resource type="InputEventKey" id="InputEventKey_llxmm"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_11xkb"]
+events = [SubResource("InputEventKey_llxmm")]
+
 [node name="ExampleCommandPalette" type="GridContainer"]
 columns = 2
 script = ExtResource("1_wghv1")
@@ -74,3 +84,10 @@ shortcut = SubResource("Shortcut_45dw0")
 texture_normal = ExtResource("7_ht8ne")
 script = ExtResource("3_fg0w2")
 command = ExtResource("10_8s4tk")
+
+[node name="Repeat" type="TextureButton" parent="."]
+layout_mode = 2
+shortcut = SubResource("Shortcut_11xkb")
+texture_normal = ExtResource("11_bg6qr")
+script = ExtResource("3_fg0w2")
+command = ExtResource("12_74ex7")

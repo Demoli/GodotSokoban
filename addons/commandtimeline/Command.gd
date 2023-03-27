@@ -17,6 +17,9 @@ extends Area2D
 ## The timeline track index to add the command to (0 indexed)
 @export var track := 0
 
+## A material that will be added to the command to show that it is running
+@export var running_command_material: Material = load("res://addons/commandtimeline/RunningCommandMaterial.tres")
+
 @onready var timeline = get_tree().get_first_node_in_group("timeline")
 
 var placeholder_area: Area2D
@@ -28,11 +31,12 @@ func _ready():
 	connect("mouse_entered", Callable(func(): mouse_over = true))
 	connect("mouse_exited", Callable(func(): mouse_over = false))
 
-func run(_args: Array = []):
-	pass
+func run():
+	$Sprite2D.material = running_command_material
 	
 func reset():
 	has_run = false
+	$Sprite2D.material = null
 	
 func _input(event):
 	if draggable and event.is_action_released("drop_command"):
