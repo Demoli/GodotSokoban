@@ -59,8 +59,9 @@ func _process_commands():
 	
 	if runnable.size():
 		for c in runnable:
-			c.run()
-			c.has_run = true
+			if tick >= c.time:
+				c.has_run = true			
+				c.run()
 
 func play():
 	playing = true

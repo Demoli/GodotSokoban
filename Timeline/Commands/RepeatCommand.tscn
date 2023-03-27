@@ -13,7 +13,7 @@ Fonts/fonts/normal = SubResource("SystemFont_ir0i5")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ig4wr"]
 
-[node name="MoveDownCommand" type="Area2D"]
+[node name="RepeatCommand" type="Area2D"]
 script = ExtResource("1_pgg4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
